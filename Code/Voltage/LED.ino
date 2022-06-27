@@ -1,7 +1,7 @@
 // the number of the LED pin
 const int ledPin = 25
 ;  // 16 corresponds to GPIO16
-int dutyCycle = 255;
+
 // setting PWM properties
 const int freq = 5000;
 const int ledChannel = 0;
@@ -16,9 +16,13 @@ void setup(){
 }
  
 void loop(){
-
-    ledcWrite(ledChannel, dutyCycle);
-    delay(15);
-
+    for(int dutyCycle = 255; dutyCycle >0; dutyCycle--){
+      ledcWrite(ledChannel, dutyCycle);
+      delay(50);
+    }
+    for(int dutyCycle = 0; dutyCycle <255; dutyCycle++){
+      ledcWrite(ledChannel, dutyCycle);
+      delay(50);
+    }
 
 }
